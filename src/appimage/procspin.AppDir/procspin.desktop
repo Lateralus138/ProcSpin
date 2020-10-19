@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=procspin
+Exec=procspin %F
+Icon=procspin
+Terminal=true
+Type=Application
+Categories=Utility;
