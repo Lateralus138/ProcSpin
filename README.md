@@ -203,6 +203,7 @@ The best thing to do is to choose the script or AppImage from the 'Continuous Re
 |Continuous Release - Recommended|[https://github.com/Lateralus138/ProcSpin/releases/tag/Continuous](https://github.com/Lateralus138/ProcSpin/releases/tag/Continuous)|
 |This Repo - Themed|[http://lateralus138.github.io/ProcSpin](http://lateralus138.github.io/ProcSpin)|
 |This Repo|[https://github.com/Lateralus138/ProcSpin](https://github.com/Lateralus138/ProcSpin)|
+|OpenDesktop/Pling|[https://www.pling.com/p/1435385/](https://www.pling.com/p/1435385/)|
 
 ### Direct Links
 
