@@ -44,6 +44,7 @@ Several fixes and a refactor coming soon, please bare with me.
     - [Logo](#logo)
     - [Video](#video)
       - [YouTube](#youtube)
+  - [Project Stats](#project-stats)
   - [LICENSE](#license)
 
 ## Description
@@ -238,6 +239,11 @@ The best thing to do is to choose the script or AppImage from the 'Continuous Re
 |:---:|:---|
 |[ProcSpin Demo 1](https://www.youtube.com/watch?v=ePHORw8x6IQ)|My special `APT` Update script.|
 |[ProcSpin Demo 1](https://www.youtube.com/watch?v=P_BFhdxi89I)|Random demonstration.|
+
+
+## Project Stats
+
+
 
 ## [LICENSE](LICENSE)
 
