@@ -1,6 +1,7 @@
 # ProcSpin
 
-Customize silent running processes with frame animations and text in Linux Bash shells.
+Customize silent running processes with frame animations and text in Linux Bash shells. <a class="twitter-share-button"
+  href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=%27ProcSpin%27+-+Customize+silent+running+processes+with+frame+animations+and+text+in+%23Linux+%23Bash+shells.%0D%0A%23Programming+%23Coding+via+%40thefluxapex%0D%0A%0D%0A">![Twitter URL](https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2FLateralus138%2FProcSpin&label=Tweet%20This%20Project)</a>
 
 ![Main Logo](media/icon/procspin-256x256.png)
 
