@@ -30,7 +30,7 @@ jobs:
           sed -i "s/\"namedLogo\": \".*\"/\"namedLogo\": \"bash\"/g" docs/json/script-md5.json
           sed -i "s/\"label\": \".*\"/\"label\": \"AppImage MD5\"/g" docs/json/appimage-md5.json
           sed -i "s/\"message\": \".*\"/\"message\": \"$(md5sum dist/appimage/procspin-x86_64.AppImage | cut -d' ' -f 1)\"/g" docs/json/appimage-md5.json
-          sed -i "s/\"namedLogo\": \".*\"/\"namedLogo\": \"windowsterminal\"/g" docs/json/appimage-md5.json
+          sed -i "s/\"namedLogo\": \".*\"/\"namedLogo\": \"windows terminal\"/g" docs/json/appimage-md5.json
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Created MD5 Json Endpoints
