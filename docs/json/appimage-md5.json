@@ -2,8 +2,8 @@
 	"schemaVersion": 1,
 	"color": "00aedb",
 	"label": "AppImage MD5",
-	"message": "ec16c008c902724869a893bec7fab799",
+	"message": "8182c0f1e41514e2a7c0603d290f8545",
 	"labelColor": "1d1d1d",
 	"style": "for-the-badge",
-	"namedLogo": "windows terminal"
+	"namedLogo": "powershell"
 }
