@@ -4,10 +4,6 @@ Customize silent running processes with frame animations and text in Linux Bash 
 
 ![Main Logo](media/icon/procspin-256x256.png)
 
-|`Build`|`Status`|
-|---:|:---|
-![Build Status](https://img.shields.io/static/v1?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAB11BMVEUAAAA9U2GDnayLpraOqLeQqbiRqriPqLaPqLaRqriDnaw9U2Fid4SKp7iKp7hid4RfdYGHpbdYbnuCorRSaHV9nrFMYm93ma1HXGlwlKlwlKlBV2NojqQ7UV1hiKA2S1hYgpswRlJQfJcwRlIkMjlDbIVMfJpNfptOfptNfZpRfplTf5lMfJlOfptNfptDbIUkMjkHAAAuR1YzUWMzUWMzUmM0UmQzUWMyUWM0UmQzUmMzUWMzUWMuR1YHAACNsMWRs8aXt8mbuMm3ydSbuMmRs8aIrsONscWStMeZtsfk6u3k6u2ZtseStMeIrsOGrMKKr8SMr8Oswc3u8PHu8PGswc6Mr8OCqcCFrMKJrsOTssTT3OLS3OKTssSJrsOCqcB9pr5/p7+CqcCApryYs8Sdt8aApryCqb9/p799pr52obp4o7x9o7qswc7F09vO2eCwxNCCp7x4ort2obpvnLdxnbd9orjK1t3T3OLK1t7Y4OSFp7twnLZvnbdomLRolrKTsMHb4eWju8mRrsDd4+aiushplrJomLRhkrBik7Bmkq25ydLY3uLW3eHI09ptl69hkrBhkrBZjq1bj65ej613nbSRrr+etsV3nbRika1bjq5Zjq3///97NWaUAAAAP3RSTlMAAlOMioqKioqKUwIMwcEMDsQOxA7EDsQOxMQOxA7EDsQOxA4Lq/Lv7+/v7+/v76sLASI+Pj4+Pj4+Pj4+IgH2SccMAAAAAWJLR0SccbzCJwAAAAd0SU1FB+QIGBYnM5liyzQAAADPSURBVAjXY2BABYxMzCysbOwcnKwszFzcDDy89g6OTs7OLo6u9nz8DAKCbu4enl7ePr7ufoICDELC/gGBQcEhoWEB/sJCDCKi4RGRUdExsXER8aIiDGLiCYlJySmpaekZmeJiDBKSWdk5uXn5BYVFxVISDNIyJaVl5RWVVdU1tTLSDLJydfUNjU3NLa1t7XKyDPIKHZ1d3T29ff0TJirIMygqTZo8Zeq06TNmzpqtpMygoqqmrqGppa2jq6emb8BgaGRsYmpmbmFpZW1jawcAIDgy9UQeYeoAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMDgtMjRUMjI6Mzk6NTEtMDQ6MDBWWeqAAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTA4LTI0VDIyOjM5OjUxLTA0OjAwJwRSPAAAAABJRU5ErkJggg==&label=AppImage&message=Status&color=b91d47&style=for-the-badge&labelColor=1d1d1d)|![AppImage Build Status](https://img.shields.io/github/workflow/status/Lateralus138/ProcSpin/AppImage%20Build?style=for-the-badge&labelColor=1d1d1d)
-
 ![Coming Soon](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/ProcSpin/master/docs/json/coming_soon.json)
 
 Several fixes and a refactor coming soon, please bare with me.
@@ -27,9 +23,10 @@ Several fixes and a refactor coming soon, please bare with me.
       - [Executable Script](#executable-script)
     - [AppImage](#appimage)
       - [Executable AppImage](#executable-appimage)
-    - [Parameters](#parameters)
-      - [Parameter PID](#parameter-pid)
-      - [Parameter Switches](#parameter-switches)
+    - [Arguments](#arguments)
+      - [Argument Switches](#argument-switches)
+        - [Argument PID](#argument-pid)
+        - [Argument Frames](#argument-frames)
     - [Bash Completion](#bash-completion)
     - [Animation Frames](#animation-frames)
       - [Default Animation Frames Example](#default-animation-frames-example)
@@ -121,14 +118,19 @@ The `AppImage` is only executable and used exactly like the executable script ab
 (silent_command_script_or_executable) & ./procspin-x86_64.AppImage $! -p " prepended text [" -a "] "
 ```
 
-### Parameters
+### Arguments
 
-|Parameter|Type|Description|
+#### Argument Switches
+|Switch|Switch - Alt|Description|
 |:---:|:---:|:---:|
-|PID|Integer|The process id to attach to.|
-|Switch|String|Any of the Parameter Switches below.|
+|-h|--help|This help message.|
+|-i|--pid|Integer ID of process.|
+|-f|--frames|STRING or ARRAY of animation frames.|
+|-p|--prepend|STRING to prepend to spinner.|
+|-a|--append|STRING to append to spinner.|
+|-s|--spread|Time in INTEGER seconds to spread frames over.|
 
-#### Parameter PID
+##### Argument PID
 
 |Example|Description|
 |:---:|:---:|
@@ -136,14 +138,13 @@ The `AppImage` is only executable and used exactly like the executable script ab
 |$$|PID of current shell.|
 |$!|PID of last ran process/sub-shell.|
 
-#### Parameter Switches
-|Switch|Switch - Alt|Description|
-|:---:|:---:|:---:|
-|-h|--help|This help message.|
-|-f|--frames|STRING or ARRAY of animation frames.|
-|-p|--prepend|STRING to prepend to spinner.|
-|-a|--append|STRING to append to spinner.|
-|-s|--spread|Time in INTEGER seconds to spread frames over.|
+##### Argument Frames
+
+|Example|
+|:---:|
+|array=('>   ',' >  ','  > ','   >')|
+|A comma delimited array of animation frames where you can create positional animations by creating each `frame` the same character length and, of course, filling empty spaces with spaces. |
+
 ### Bash Completion
 
 As stated above *Bash Completion* is provided when sourcing the script, but it can also be added to any of your 'profile' or 'dot' configs by pasting the following code (or from the script) into your own files.
@@ -161,8 +162,8 @@ This comes with a default animation embedded as an array in the main function, b
 #### Default Animation Frames Example
 
 ```Bash
-array=('' '' '' '' '' '' '' '' '' '' '' \
-				'' '' '' '' '' '' '' '' '' '' '' '' '' '')
+array=('','','','','','','','','','','' \
+				'','','','','','','','','','','','','','')
 ```
 
 #### Moving Arrows Animation Frames Example
@@ -192,7 +193,7 @@ frame_array=(\
 Silently run `find` to log all files to a file with a custom animation with the above frames (after enabling `sudo` with some other command, of course):
 
 ```Bash
- $ (sudo find / > ~/files.log 2>/dev/null) & procspin $! -p " <~ Running 'find'... ~> [" -a "] " -f "${frame_array[@]}"
+ $ (sudo find / > ~/files.log 2>/dev/null) & procspin -i $! -p " <~ Running 'find'... ~> [" -a "] " -f "${frame_array[@]}"
 [4] 53354
  <~ Running 'find'... ~> [               ▶]
 ```
@@ -243,7 +244,9 @@ The best thing to do is to choose the script or AppImage from the 'Continuous Re
 
 ## Project Stats
 
-
+|`Build`|`Status`|
+|---:|:---|
+![Build Status](https://img.shields.io/static/v1?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAB11BMVEUAAAA9U2GDnayLpraOqLeQqbiRqriPqLaPqLaRqriDnaw9U2Fid4SKp7iKp7hid4RfdYGHpbdYbnuCorRSaHV9nrFMYm93ma1HXGlwlKlwlKlBV2NojqQ7UV1hiKA2S1hYgpswRlJQfJcwRlIkMjlDbIVMfJpNfptOfptNfZpRfplTf5lMfJlOfptNfptDbIUkMjkHAAAuR1YzUWMzUWMzUmM0UmQzUWMyUWM0UmQzUmMzUWMzUWMuR1YHAACNsMWRs8aXt8mbuMm3ydSbuMmRs8aIrsONscWStMeZtsfk6u3k6u2ZtseStMeIrsOGrMKKr8SMr8Oswc3u8PHu8PGswc6Mr8OCqcCFrMKJrsOTssTT3OLS3OKTssSJrsOCqcB9pr5/p7+CqcCApryYs8Sdt8aApryCqb9/p799pr52obp4o7x9o7qswc7F09vO2eCwxNCCp7x4ort2obpvnLdxnbd9orjK1t3T3OLK1t7Y4OSFp7twnLZvnbdomLRolrKTsMHb4eWju8mRrsDd4+aiushplrJomLRhkrBik7Bmkq25ydLY3uLW3eHI09ptl69hkrBhkrBZjq1bj65ej613nbSRrr+etsV3nbRika1bjq5Zjq3///97NWaUAAAAP3RSTlMAAlOMioqKioqKUwIMwcEMDsQOxA7EDsQOxMQOxA7EDsQOxA4Lq/Lv7+/v7+/v76sLASI+Pj4+Pj4+Pj4+IgH2SccMAAAAAWJLR0SccbzCJwAAAAd0SU1FB+QIGBYnM5liyzQAAADPSURBVAjXY2BABYxMzCysbOwcnKwszFzcDDy89g6OTs7OLo6u9nz8DAKCbu4enl7ePr7ufoICDELC/gGBQcEhoWEB/sJCDCKi4RGRUdExsXER8aIiDGLiCYlJySmpaekZmeJiDBKSWdk5uXn5BYVFxVISDNIyJaVl5RWVVdU1tTLSDLJydfUNjU3NLa1t7XKyDPIKHZ1d3T29ff0TJirIMygqTZo8Zeq06TNmzpqtpMygoqqmrqGppa2jq6emb8BgaGRsYmpmbmFpZW1jawcAIDgy9UQeYeoAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMDgtMjRUMjI6Mzk6NTEtMDQ6MDBWWeqAAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTA4LTI0VDIyOjM5OjUxLTA0OjAwJwRSPAAAAABJRU5ErkJggg==&label=AppImage&message=Status&color=b91d47&style=for-the-badge&labelColor=1d1d1d)|![AppImage Build Status](https://img.shields.io/github/workflow/status/Lateralus138/ProcSpin/AppImage%20Build?style=for-the-badge&labelColor=1d1d1d)
 
 ## [LICENSE](LICENSE)
 
