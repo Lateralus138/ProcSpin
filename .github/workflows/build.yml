@@ -25,11 +25,14 @@ jobs:
     - name: Download building tools & executing AppImage build
       run: |
         [[ -f "src/script/procspin.bash" ]] || exit 1
-        cp "src/script/procspin.bash" "src/appimage/procspin.AppDir/usr/bin/procspin" || exit 2
+        if [[ ! -d "src/appimage/procspin.AppDir/usr/bin" ]]; then
+          mkdir -p "src/appimage/procspin.AppDir/usr/bin" || exit 2
+        fi
+        cp "src/script/procspin.bash" "src/appimage/procspin.AppDir/usr/bin/procspin" || exit 3
         if [[ -f "src/appimage/procspin.AppDir/usr/bin/procspin" ]]; then
           wget -nv -c https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
           ./build.sh
-        else exit 3; fi
+        else exit 4; fi
     - name: Create Release
       if: success()
       uses: ncipollo/release-action@v1
