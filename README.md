@@ -6,7 +6,7 @@ Customize silent running processes with frame animations and text in Linux Bash 
 
 ![Coming Soon](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/ProcSpin/master/docs/json/coming_soon.json)
 
-Several fixes and a refactor coming soon, please bare with me.
+Several fixes and a refactor coming soon, please bare with me. Almost done.
 
 ## Table of Contents
 - [ProcSpin](#procspin)
