@@ -1,4 +1,5 @@
 name: MD5 Checks
+
 on:
   repository_dispatch:
     types: [md5-check]
