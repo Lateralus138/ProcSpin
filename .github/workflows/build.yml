@@ -20,9 +20,7 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
-    # Runs a set of commands using the runners shell
-    - name: Download building tools & executing AppImage build
+    - name: Prepare for build
       run: |
         [[ -f "src/script/procspin.bash" ]] || exit 1
         if [[ ! -d "src/appimage/procspin.AppDir/usr/bin" ]]; then
@@ -30,6 +28,10 @@ jobs:
         fi
         cp "src/script/procspin.bash" "src/appimage/procspin.AppDir/usr/bin/procspin" || exit 3
         cp "src/script/procspin.bash" "dist/script/procspin.bash" || exit 4
+    # Runs a set of commands using the runners shell
+    - name: Download building tools & executing AppImage build
+      if: success()
+      run: |
         if [[ -f "src/appimage/procspin.AppDir/usr/bin/procspin" ]]; then
           wget -nv -c https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
           ./build.sh
