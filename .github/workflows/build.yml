@@ -29,10 +29,11 @@ jobs:
           mkdir -p "src/appimage/procspin.AppDir/usr/bin" || exit 2
         fi
         cp "src/script/procspin.bash" "src/appimage/procspin.AppDir/usr/bin/procspin" || exit 3
+        cp "src/script/procspin.bash" "dist/script/procspin.bash" || exit 4
         if [[ -f "src/appimage/procspin.AppDir/usr/bin/procspin" ]]; then
           wget -nv -c https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
           ./build.sh
-        else exit 4; fi
+        else exit 5; fi
     - name: Create Release
       if: success()
       uses: ncipollo/release-action@v1
