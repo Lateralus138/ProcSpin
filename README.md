@@ -95,7 +95,7 @@ Then use the function with Bash Completion in your terminal:
 
 ```Bash
 # Run silent sub-shell command with the default spiner, but added text.
-(silent_command_script_or_executable) & procspin $! -p " prepended text [" -a "] "
+(silent_command_script_or_executable) & procspin -i $! -p " prepended text [" -a "] "
 ```
 
 #### Executable Script

@@ -1,0 +1,35 @@
+name: MD5 Checks
+on:
+  repository_dispatch:
+    types: [md5-check]
+jobs:
+  md5_checks:
+    name: Check MD5 of Project Files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check and Create Directories and Files
+        run: |
+          [[ -f "dist/script/procspin.bash" ]] || exit 1
+          [[ -f "dist/appimage/procspin-x86_64.AppImage" ]] || exit 2
+          if ! [[ -d "docs/json" ]]; then
+            mkdir -p docs/json || exit 3
+          fi
+          if ! [[ -f "docs/json/script-md5.json" ]]; then
+            touch docs/json/script-md5.json || exit 4
+          fi
+          if ! [[ -f "docs/json/script-md5.json" ]]; then
+            touch docs/json/appimage-md5.json || exit 5
+          fi
+          json_template='{\n\t"schemaVersion": 1,\n\t"color": "00aedb",\n\t"label": "PLACEHOLDERL",\n\t"message": "PLACEHOLDERM",\n\t"labelColor": "1d1d1d",\n\t"style": "for-the-badge",\n\t"namedLogo": "PLACEHOLDERN"\n}'
+          echo -e "$json_template" > docs/json/script-md5.json || exit 6
+          echo -e "$json_template" > docs/json/appimage-md5.json || exit 7
+          sed -i "s/\"label\": \".*\"/\"label\": \"Script MD5\"/g" docs/json/script-md5.json
+          sed -i "s/\"message\": \".*\"/\"message\": \"$(md5sum dist/script/procspin.bash | cut -d' ' -f 1)\"/g" docs/json/script-md5.json
+          sed -i "s/\"namedLogo\": \".*\"/\"namedLogo\": \"bash\"/g" docs/json/script-md5.json
+          sed -i "s/\"label\": \".*\"/\"label\": \"AppImage MD5\"/g" docs/json/appimage-md5.json
+          sed -i "s/\"message\": \".*\"/\"message\": \"$(md5sum dist/appimage/procspin-x86_64.AppImage | cut -d' ' -f 1)\"/g" docs/json/appimage-md5.json
+          sed -i "s/\"namedLogo\": \".*\"/\"namedLogo\": \"appimage\"/g" docs/json/appimage-md5.json
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Created MD5 Json Endpoints

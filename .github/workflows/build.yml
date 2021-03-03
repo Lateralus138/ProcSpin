@@ -49,3 +49,14 @@ jobs:
         prerelease: False
         artifacts: "dist/appimage/procspin-x86_64.AppImage,dist/script/procspin.bash"
         token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Built Main Project
+    - name: Trigger MD5 Workflow
+      if: success()
+      uses: peter-evans/repository-dispatch@v1
+      with:
+        token: ${{ secrets.API_TOKEN_GITHUB }}
+        repository: ${{ github.repository }}
+        event-type: md5-check
+        client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
