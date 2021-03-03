@@ -24,8 +24,8 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: Download building tools & executing AppImage build
       run: |
-        [[ -f "src/scripts/procspin.bash" ]] || exit 1
-        cp "src/scripts/procspin.bash" "src/appimage/procspin.AppDir/usr/bin/procspin" || exit 2
+        [[ -f "src/script/procspin.bash" ]] || exit 1
+        cp "src/script/procspin.bash" "src/appimage/procspin.AppDir/usr/bin/procspin" || exit 2
         if [[ -f "src/appimage/procspin.AppDir/usr/bin/procspin" ]]; then
           wget -nv -c https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
           ./build.sh
