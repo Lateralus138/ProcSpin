@@ -26,8 +26,11 @@ jobs:
         if [[ ! -d "src/appimage/procspin.AppDir/usr/bin" ]]; then
           mkdir -p "src/appimage/procspin.AppDir/usr/bin" || exit 2
         fi
-        cp "src/script/procspin.bash" "src/appimage/procspin.AppDir/usr/bin/procspin" || exit 3
-        cp "src/script/procspin.bash" "dist/script/procspin.bash" || exit 4
+        if [[ ! -d "dist/script" ]]; then
+          mkdir -p "dist/script" || exit 3
+        fi
+        cp "src/script/procspin.bash" "src/appimage/procspin.AppDir/usr/bin/procspin" || exit 4
+        cp "src/script/procspin.bash" "dist/script/procspin.bash" || exit 5
     # Runs a set of commands using the runners shell
     - name: Download building tools & executing AppImage build
       if: success()
@@ -35,7 +38,7 @@ jobs:
         if [[ -f "src/appimage/procspin.AppDir/usr/bin/procspin" ]]; then
           wget -nv -c https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
           ./build.sh
-        else exit 5; fi
+        else exit 6; fi
     - name: Create Release
       if: success()
       uses: ncipollo/release-action@v1
