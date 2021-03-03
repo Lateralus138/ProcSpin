@@ -24,10 +24,14 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: Download building tools & executing AppImage build
       run: |
-        wget -nv -c https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
-        ./build.sh
-
+        [[ -f "src/scripts/procspin.bash" ]] || exit 1
+        cp "src/scripts/procspin.bash" "src/appimage/procspin.AppDir/usr/bin/procspin" || exit 2
+        if [[ -f "src/appimage/procspin.AppDir/usr/bin/procspin" ]]; then
+          wget -nv -c https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
+          ./build.sh
+        else exit 3; fi
     - name: Create Release
+      if: success()
       uses: ncipollo/release-action@v1
       with:
         allowUpdates: True
