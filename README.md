@@ -4,9 +4,9 @@ Customize silent running processes with frame animations and text in Linux Bash 
 
 ![Main Logo](media/icon/procspin-256x256.png)
 
-![Coming Soon](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/ProcSpin/master/docs/json/coming_soon.json)
+<!-- ![Coming Soon](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Lateralus138/ProcSpin/master/docs/json/coming_soon.json)
 
-Several fixes and a refactor coming soon, please bare with me. Almost done.
+Several fixes and a refactor coming soon, please bare with me. Almost done. -->
 
 ## Table of Contents
 - [ProcSpin](#procspin)
@@ -42,6 +42,8 @@ Several fixes and a refactor coming soon, please bare with me. Almost done.
     - [Video](#video)
       - [YouTube](#youtube)
   - [Project Status](#project-status)
+    - [Overall Status](#overall-status)
+    - [Latest Version Status](#latest-version-status)
     - [Script Status](#script-status)
     - [AppImage Status](#appimage-status)
   - [LICENSE](#license)
@@ -245,6 +247,23 @@ The best thing to do is to choose the script or AppImage from the 'Continuous Re
 
 
 ## Project Status
+
+### Overall Status
+
+|Description|Status|
+|:---:|:---:|
+|Project Release Date|![GitHub Release Date](https://img.shields.io/github/release-date/Lateralus138/ProcSpin?style=for-the-badge)|
+|Total downloads for this project|![GitHub all releases](https://img.shields.io/github/downloads/Lateralus138/ProcSpin/total?style=for-the-badge)|
+|Complete repository size|![This Repo Size](https://img.shields.io/github/repo-size/Lateralus138/ProcSpin?style=for-the-badge)|
+|Commits in last month|![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Lateralus138/ProcSpin?style=for-the-badge)|
+|Commits in last year|![GitHub commit activity](https://img.shields.io/github/commit-activity/y/Lateralus138/ProcSpin?style=for-the-badge)|
+|Project Quality|![Project Status](https://img.shields.io/codefactor/grade/github/Lateralus138/ProcSpin/master?style=for-the-badge)|
+
+### Latest Version Status
+
+|Description|Status|Number of Downloads|
+|:---:|:---:|:---:|
+|Latest Release version|![Release Version](https://img.shields.io/github/v/release/Lateralus138/ProcSpin?style=for-the-badge)|![GitHub release (latest by date)](https://img.shields.io/github/downloads/Lateralus138/ProcSpin/Continuous/total?style=for-the-badge)|
 
 ### Script Status
 
