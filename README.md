@@ -23,6 +23,7 @@ Or ***Buy Me A Coffee*** if your prefer:
 
 ## Table of Contents
 - [ProcSpin](#procspin)
+  - [Support Me If You Like](#support-me-if-you-like)
   - [Table of Contents](#table-of-contents)
   - [Description](#description)
   - [Motivation](#motivation)
